@@ -1,0 +1,113 @@
+{
+  "name": "@builder/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "dev": "nest start --watch",
+    "start": "node dist/main",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,test}/**/*.ts\"",
+    "test": "jest --passWithNoTests",
+    "test:e2e": "jest --config ./test/jest-e2e.config.ts --passWithNoTests",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1075.0",
+    "@builder/agent-system": "workspace:*",
+    "@builder/ai-core": "workspace:*",
+    "@builder/cache": "workspace:*",
+    "@builder/codegen": "workspace:*",
+    "@builder/collaboration": "workspace:*",
+    "@builder/database": "workspace:*",
+    "@builder/deploy": "workspace:*",
+    "@builder/git": "workspace:*",
+    "@builder/memory": "workspace:*",
+    "@builder/monitoring": "workspace:*",
+    "@builder/plugins": "workspace:*",
+    "@builder/queue": "workspace:*",
+    "@builder/security": "workspace:*",
+    "@builder/shared": "workspace:*",
+    "@nestjs/common": "^10.4.0",
+    "@nestjs/config": "^3.2.0",
+    "@nestjs/core": "^10.4.0",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/platform-express": "^10.4.0",
+    "@nestjs/platform-socket.io": "^10.4.0",
+    "@nestjs/swagger": "^7.4.0",
+    "@nestjs/websockets": "^10.4.0",
+    "@prisma/client": "^6.0.0",
+    "bcrypt": "^5.1.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.8.0",
+    "socket.io": "^4.7.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.0",
+    "@nestjs/schematics": "^10.1.0",
+    "@nestjs/testing": "^10.4.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^22.0.0",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.0",
+    "typescript": "^5.7.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@builder/database$": "<rootDir>/../../../packages/database/src",
+      "^@builder/shared$": "<rootDir>/../../../packages/shared/src",
+      "^@builder/ai-core$": "<rootDir>/../../../packages/ai-core/src",
+      "^@builder/ai-core/(.*)$": "<rootDir>/../../../packages/ai-core/src/$1",
+      "^@builder/agent-system$": "<rootDir>/../../../packages/agent-system/src",
+      "^@builder/agent-system/(.*)$": "<rootDir>/../../../packages/agent-system/src/$1",
+      "^@builder/codegen$": "<rootDir>/../../../packages/codegen/src",
+      "^@builder/codegen/(.*)$": "<rootDir>/../../../packages/codegen/src/$1",
+      "^@builder/deploy$": "<rootDir>/../../../packages/deploy/src",
+      "^@builder/deploy/(.*)$": "<rootDir>/../../../packages/deploy/src/$1",
+      "^@builder/git$": "<rootDir>/../../../packages/git/src",
+      "^@builder/git/(.*)$": "<rootDir>/../../../packages/git/src/$1",
+      "^@builder/collaboration$": "<rootDir>/../../../packages/collaboration/src",
+      "^@builder/collaboration/(.*)$": "<rootDir>/../../../packages/collaboration/src/$1",
+      "^@builder/plugins$": "<rootDir>/../../../packages/plugins/src",
+      "^@builder/plugins/(.*)$": "<rootDir>/../../../packages/plugins/src/$1",
+      "^@builder/security$": "<rootDir>/../../../packages/security/src",
+      "^@builder/security/(.*)$": "<rootDir>/../../../packages/security/src/$1",
+      "^@builder/cache$": "<rootDir>/../../../packages/cache/src",
+      "^@builder/cache/(.*)$": "<rootDir>/../../../packages/cache/src/$1",
+      "^@builder/queue$": "<rootDir>/../../../packages/queue/src",
+      "^@builder/queue/(.*)$": "<rootDir>/../../../packages/queue/src/$1",
+      "^@builder/monitoring$": "<rootDir>/../../../packages/monitoring/src",
+      "^@builder/monitoring/(.*)$": "<rootDir>/../../../packages/monitoring/src/$1",
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(.pnpm|@octokit|universal-user-agent|before-after-hook))"
+    ]
+  }
+}
